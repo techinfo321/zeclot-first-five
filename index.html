@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Link</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>My Websites List</h1>
+
+  <ul id="links-list">
+    <!-- Your links will be dynamically added here -->
+  </ul>
+
+  <script>
+    // Array of websites and their URLs
+    var websites = [
+      { name: "Google", url: "https://plansmart.online/category/insurance-guide/" },
+      { name: "Facebook", url: "https://www.facebook.com/share/p/d7zUnYY33DFEry7y/?mibextid=qi2Omg" },
+      { name: "YouTube", url: "https://www.youtube.com/@babadainy5635" },
+      { name: "Reddit", url: "https://www.reddit.com/r/LeopardsAteMyFace/comments/1cf7ofh/comment/l1osilv/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button" },
+      { name: "Github", url: "https://github.com/techinfo321/Link-4" }
+    ];
+
+    // Function to create list items and append to the list
+    function createLinks() {
+      var list = document.getElementById("links-list");
+
+      websites.forEach(function(website, index) {
+        var listItem = document.createElement("li");
+        var link = document.createElement("a");
+        link.href = website.url;
+        link.textContent = website.name;
+        listItem.appendChild(link);
+        list.appendChild(listItem);
+      });
+    }
+
+    // Function to select a random website URL and redirect after a delay
+    function redirectToRandomLink() {
+      var randomIndex = Math.floor(Math.random() * websites.length);
+      var randomUrl = websites[randomIndex].url;
+      setTimeout(function() {
+        window.location.href = randomUrl;
+      }, 3000); // 3 seconds delay (3000 milliseconds)
+    }
+
+    // Call the function to create links when the page loads
+    window.onload = function() {
+      createLinks();
+      redirectToRandomLink();
+    };
+  </script>
+
+</body>
+</html>
